@@ -1,6 +1,6 @@
 // removeLastUser, removes the last element from the array, it returns the deleted element and the new array.
 const lastuser =['Leo', 'Fernando', 'Mar', 'Toby', 'Alex'];
- const  sendReponse = (code, body = null) => {
+ function sendReponse(code, body = null) {
      const response = {
        code,
        body,

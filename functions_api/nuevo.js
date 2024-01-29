@@ -1,7 +1,8 @@
 //addUser, adds a new user to the users array and return the user created, all users in
 
-const users = ['Mafer', 'Arturo', 'Lorena', 'Victor', 'Sol'];
-const sendResponse = (code, body = null) => {
+const users = ['Leo', 'Fernando', 'Mar', 'Toby', 'Alex'];
+
+function sendResponse(code, body = null) {
   const response = {
     code,
     body,
@@ -32,6 +33,7 @@ const addUser = (userName) => {
     if (!userName) {
       return sendResponse(400);
     }
+
     users.push(userName); 
     return sendResponse(200, { newUser: userName, allUsers: users });
   } catch (error) {
@@ -40,8 +42,3 @@ const addUser = (userName) => {
 };
 
 console.log(addUser('Lulu')); 
-
-
-
-
-    

@@ -1,7 +1,7 @@
-//getUsers, return all existing users
-const users = ['Mafer', 'Arturo', 'Lorena', 'Victor', 'Sol'];
+//removeFirstUser, removes the first element from the array, it returns the deleted element and the new array.
+const User =['Leo', 'Fernando', 'Mar', 'Toby', 'Alex'];
 
-const sendResponse = (code, body = null) => {
+function sendResponse(code, body = null) {
   const response = {
     code,
     body,
@@ -25,18 +25,12 @@ const sendResponse = (code, body = null) => {
   }
 
   return response;
-};
+}
 
-const allUsers = () => {
-  try {
-    
-    users.forEach(user => {
-      console.log(user);
-    });
-    return sendResponse(200, users);
-  } catch (error) {
-    return sendResponse(500, error);
-  }
-};
+function fUser(){
+  console.log(User.shift());
+  console.log(User);
+  return sendResponse(200, User);
+}
 
-console.log(allUsers());
+console.log(fUser());

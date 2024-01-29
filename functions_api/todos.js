@@ -1,5 +1,6 @@
-const users = ['Mafer', 'Arturo', 'Lorena', 'Victor', 'Sol'];
+//getUsers, return all existing users
 
+const users = ['Leo', 'Fernando', 'Mar', 'Toby', 'Alex'];
 function sendResponse(code, body = null) {
   const response = {
     code,
@@ -24,23 +25,18 @@ function sendResponse(code, body = null) {
   }
 
   return response;
-}
+};
 
-const removeUser = (userName) => {
+const allUsers = () => {
   try {
-    if (!userName) {
-      return sendResponse(400);
-    }
-    if (users.splice(userName)) {
-      return sendResponse(200, userName);
-    }
-
-    users.pop(userName);
-    return sendResponse(200, userName);
+    
+    users.forEach(user => {
+      console.log(user);
+    });
+    return sendResponse(200, users);
   } catch (error) {
     return sendResponse(500, error);
   }
 };
 
-console.log(removeUser('Sol'));
-console.log(removeUser(['Mafer', 'Arturo', 'Lorena', 'Victor', 'bingo']));
+console.log(allUsers());

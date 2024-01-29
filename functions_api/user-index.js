@@ -2,7 +2,7 @@
 
 
 const users = ['Leo', 'Fernando', 'Mar', 'Toby', 'Alex'];
-const sendReponse = (code, body = null) => {
+function sendReponse(code, body = null) {
      const response = {
       code,
        body,

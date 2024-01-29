@@ -1,6 +1,6 @@
 // getUsersSize, return the number of users in the array.
-const users = ['Mafer', 'Arturo', 'Lorena', 'Victor', 'Sol'];
- const sendReponse = (code, body = 5) => {
+const users = ['Leo', 'Fernando', 'Mar', 'Toby', 'Alex'];
+ function sendReponse(code, body = null) {
      const response = {
        code,
        body,
