@@ -1,3 +1,4 @@
+//getUsers, return all existing users
 const users = ['Mafer', 'Arturo', 'Lorena', 'Victor', 'Sol'];
 
 const sendResponse = (code, body = null) => {

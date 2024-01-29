@@ -1,16 +1,36 @@
-const lastUser = ['Mafer', 'Arturo', 'Lorena', 'Victor', 'Sol'];
+// updateUser Index, takes the index and the new value, if index exists then replace the element with the new value.
 
-const updateUserByIndex = (index, newValue) => {
-  if (index >= 0 && index < lastUser.length) {
-    lastUser[index] = newValue;
-    return lastUser;
-  } else {
-    return null;
-  }
-};
 
-console.log(updateUserByIndex(2, 'NewName')); // Reemplaza 'Lorena' con 'NewName'
-console.log(lastUser); // ['Mafer', 'Arturo', 'NewName', 'Victor', 'Sol']
-
-console.log(updateUserByIndex(10, 'InvalidIndex')); // Retorna null ya que el índice 10 está fuera de rango
-console.log(lastUser); // ['Mafer', 'Arturo', 'NewName', 'Victor', 'Sol'] (sin cambios en el array)
+const users = ['Leo', 'Fernando', 'Mar', 'Toby', 'Alex'];
+const sendReponse = (code, body = null) => {
+     const response = {
+      code,
+       body,
+     };
+     switch (code) {
+        case 200:
+          response.msg = "Ok";
+          break;
+        case 400:
+          response.msg = "Endpoint not valid";
+          break;
+        case 404:
+          response.msg = "Not Found";
+          break;
+        case 500:
+          response.msg = "Internal Server Error";
+          break;
+        default:
+          response.msg = "Unknown status code";
+      
+     }
+     return response;
+ }
+   function updateUserByIndex(index, userName){
+       if (index >= 0) {
+       users.splice(index, 0, userName)
+       console.log (users)
+       return sendReponse(200);
+     }
+ }
+ console.log(updateUserByIndex(4, "Oliver"));

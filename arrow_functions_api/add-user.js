@@ -1,6 +1,7 @@
-const users = ['Mafer', 'Arturo', 'Lorena', 'Victor', 'Sol'];
+//addUser, adds a new user to the users array and return the user created, all users in
 
-function sendResponse(code, body = null) {
+const users = ['Mafer', 'Arturo', 'Lorena', 'Victor', 'Sol'];
+const sendResponse = (code, body = null) => {
   const response = {
     code,
     body,
@@ -31,20 +32,15 @@ const addUser = (userName) => {
     if (!userName) {
       return sendResponse(400);
     }
-
-    if (users.includes(userName)) {
-      return sendResponse(200, userName);
-    }
-
-    users.push(userName);
-    return sendResponse(200, userName);
+    users.push(userName); 
+    return sendResponse(200, { newUser: userName, allUsers: users });
   } catch (error) {
     return sendResponse(500, error);
   }
 };
 
-console.log(addUser('Bingo'));
-console.log(addUser(['Mafer', 'Arturo', 'Lorena', 'Victor', 'Sol', 'bingo']));
+console.log(addUser('Lulu')); 
+
 
 
 

@@ -1,5 +1,6 @@
+// getUser, takes one username and return it if exists.
 const users = ["Emmy", "Carlos", "Brandon", "Luis"];
-function sendReponse(code, body = null) {
+const sendReponse = (code, body = null) => {
   const response = {
     code,
     body,

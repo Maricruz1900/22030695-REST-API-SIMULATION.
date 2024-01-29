@@ -1,3 +1,4 @@
+///removeFirstUser, removes the first element from the array, it returns the deleted element and the new array.
 const firstUser = ['Mafer', 'Arturo', 'Lorena', 'Victor', 'Sol'];
 
 const sendResponse = (code, body = null) => {
@@ -24,28 +25,16 @@ const sendResponse = (code, body = null) => {
     }
   
     return response;
-  };
+  }
   
-  const User = (userName) => {
-    try {
-      if (!userName) {
-        return sendResponse(400);
-      }
+  function fUser(){
+    console.log(firstUser.shift());
+    console.log(firstUser);
+    return sendResponse(200, firstUser);
+  }
   
-      if (firstUser.shift(userName)) {
-        return sendResponse(200, userName);
-      }
+  console.log(fUser());
   
-    firstUser.shift(userName);
-      return sendResponse(200, userName);
-    } catch (error) {
-      return sendResponse(500, error);
-    }
-  };
+   
   
-console.log(firstUser.shift());
-
-
-console.log(firstUser);
-
-
+  
