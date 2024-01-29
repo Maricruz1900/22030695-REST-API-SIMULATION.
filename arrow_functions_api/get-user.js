@@ -37,4 +37,4 @@ const getUser = (userName) => {
   }
 };
 
-console.log(getUser("Luisa"));
+console.log(getUser("Emmy"));
