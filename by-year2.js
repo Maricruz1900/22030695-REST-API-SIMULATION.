@@ -191,7 +191,7 @@ const books = [
         }
 ];
 
-function sendResponse(code, body = null) {
+const sendResponse = (code, body = null) => {
     const response = {
         code,
         body,
