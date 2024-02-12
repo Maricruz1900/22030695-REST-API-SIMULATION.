@@ -195,7 +195,7 @@ const books = [
         }
 ];
 
-function sendResponse(code, body = null) {
+const sendResponse = (code, body = null) => {
     const response = {
         code,
         body,
@@ -221,12 +221,12 @@ function sendResponse(code, body = null) {
     return response;
 }
 
-function filterBy(property, value) {
+const filterBy = (property, value) => {
     const filteredBooks = books.filter(book => book[property] === value);
     return sendResponse(200, filteredBooks);
 }
 
-function getBooksByYear(year) {
+const getBooksByYear = (year) => {
     const filteredBooks = books.filter(book => book.year === year);
     return sendResponse(200, filteredBooks);
 }
