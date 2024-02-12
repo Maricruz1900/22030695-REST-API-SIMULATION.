@@ -1,4 +1,4 @@
-//getBook, takes one book title OR ISBN and return it if exists.
+//getBooks, return all existing books.
 
 const books = [
     {
@@ -192,7 +192,7 @@ const books = [
       }
   ];
   
-  const sendResponse = (code, body = null) => {
+  function sendResponse(code, body = null) {
     const response = {
       code,
       body,
@@ -206,7 +206,7 @@ const books = [
         response.msg = "Endpoint not valid";
         break;
       case 404:
-        response.msg = "Not found";
+        response.msg = "Not Found";
         break;
       case 500:
         response.msg = "Internal Server Error";
@@ -218,24 +218,14 @@ const books = [
     return response;
   }
   
-  const getBook = (bookName,ISBN,year,genre,author,stock,publisher) => {
+  function AllBooks  () {
     try {
-      if (!bookName) {
-        return sendResponse(400);
-      }
-  
-      const book = books.find((book) => book.title === bookName);
-  
-      if (book) {
-        return sendResponse(200, book.title);
-      }
-  
-      return sendResponse(404);
+      return sendResponse(200, books);
     } catch (error) {
+
       return sendResponse(500, error);
     }
   };
   
-          
-          console.log(getBook("Thinking, Fast and Slow"));
+  console.log(AllBooks());
   

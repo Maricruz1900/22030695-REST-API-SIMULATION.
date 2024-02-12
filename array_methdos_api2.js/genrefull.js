@@ -1,4 +1,5 @@
-//addBook, adds a new book to the books array and return the book created, and the new array, including the new book.
+//genreFullAvailability, return true or false if all books from a given genre have stock available.
+
 const books = [
     {
         "title": "Harry Potter and the Philosopher's Stone",
@@ -9,16 +10,16 @@ const books = [
         "stock": 10,
         "publisher": "Bloomsbury"
     },
-       
-              {
-                    "title": "Harry Potter and the Philosopher's Stone",
-                    "ISBN": "9781408855652",
-                    "year": 1997,
-                    "genre": "Fantasy",
-                    "author": "J.K. Rowling",
-                    "stock": 10,
-                    "publisher": "Bloomsbury"
-              },    
+    
+        {
+                "title": "Harry Potter and the Philosopher's Stone",
+                "ISBN": "9781408855652",
+                "year": 1997,
+                "genre": "Fantasy",
+                "author": "J.K. Rowling",
+                "stock": 10,
+                "publisher": "Bloomsbury"
+        },
         {
                 "title": "Harry Potter and the Chamber of Secrets",
                 "ISBN": "9781408855669",
@@ -189,10 +190,9 @@ const books = [
                 "stock": 5,
                 "publisher": "Farrar, Straus and Giroux"
         }
-    ];
+];
 
-    
-const sendResponse = (code, body = null) => {
+function sendResponse(code, body = null) {
     const response = {
         code,
         body,
@@ -218,43 +218,15 @@ const sendResponse = (code, body = null) => {
     return response;
 }
 
-const addBook = (title, ISBN, year, genre, author, stock, publisher ) => {
-    const newBook = {
-            title,
-            ISBN,
-            year,
-            genre,
-            author,
-            stock,
-            publisher
-    };
-
-    
-    try {
-        if (!newBook) {
-            return sendResponse(400);
-        }
-            
-
-        books.push(newBook);
-        return sendResponse(200, books);
-    } catch (error) {
-        return sendResponse(500, error);
-    }
-};
-
-console.log(addBook("The future of the tomorrow", "9780307881352", 2009, "suspense", "Neil Gaiman", 5, "Crown Business"));
-console.log("the new book is:", {
-    title: "The future of the tomorrow",
-    "ISBN": "9780307881352",
-    "year": 2009,
-    "genre": "suspense",
-    "author": "Neil Gaiman",
-    "stock": 5,
-    "publisher": "Crown Business"
-});
-
-
-
+function Availability(genre) { 
+try {
+    const booksByGenre = books.filter(book => book.genre === genre);
+    const allAvailable = booksByGenre.every(book => book.stock > 0);
+    return sendResponse(200, allAvailable);
+} catch (error) {
+    return sendResponse(404);
+}
+}
+console.log(Availability("Business"));
 
 

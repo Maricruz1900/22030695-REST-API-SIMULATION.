@@ -195,7 +195,7 @@ const books = [
         }
 ];
 
-const sendResponse = (code, body = null) => {
+function sendResponse(code, body = null) {
     const response = {
         code,
         body,
@@ -221,7 +221,7 @@ const sendResponse = (code, body = null) => {
     return response;
 }
 
-const countby = (property) =>{
+function countby(property) {
     const count = {};
     for (const book of books) {
         if (count[book[property]]) {

@@ -192,7 +192,7 @@ const books = [
         }
 ];
 
-const sendResponse = (code, body = null) => {
+function sendResponse(code, body = null) {
     const response = {
         code,
         body,
@@ -218,7 +218,7 @@ const sendResponse = (code, body = null) => {
     return response;
 }
 
-const Availability = (genre) =>{ 
+function Availability(genre) { 
 try {
     const booksByGenre = books.filter(book => book.genre === genre);
     const allAvailable = booksByGenre.some(book => book.stock > 0);

@@ -190,7 +190,7 @@ const books = [
         "publisher": "Farrar, Straus and Giroux"
     }
 ];
-const sendResponse = (code, body = null) => {
+function sendResponse(code, body = null) {
     const response = {
       code,
       body,
@@ -216,7 +216,7 @@ const sendResponse = (code, body = null) => {
     return response;
   }
 
-const listBooks = () => {
+function listBooks() {
     const result = sendResponse(200, books.map((book) => {
         return `${book.title} - ${book.author} - ${book.year}`;
     }));
@@ -224,6 +224,6 @@ const listBooks = () => {
     return result;
 }
 
-
+// Example usage
 const booksList = listBooks();
 console.log(booksList);
